@@ -54,8 +54,10 @@ export const RadarChart = ({ attributes, size = "md" }: RadarChartProps) => {
         gridLevels={5}
         gridLabel={(node) => node.id}
         theme={{
-          textColor: "#FFFFFF",
-          fontSize: 12,
+          text: {
+            fill: "#FFFFFF",
+            fontSize: 12,
+          },
           axis: {
             domain: {
               line: {

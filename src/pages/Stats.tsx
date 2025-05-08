@@ -1,4 +1,3 @@
-
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuthStore } from "../store/authStore";
@@ -195,8 +194,10 @@ const Stats = () => {
                   ]}
                   animate={true}
                   theme={{
-                    textColor: "#FFFFFF",
-                    fontSize: 11,
+                    text: {
+                      fill: "#FFFFFF",
+                      fontSize: 11,
+                    },
                     axis: {
                       domain: {
                         line: {
@@ -299,8 +300,10 @@ const Stats = () => {
                     },
                   ]}
                   theme={{
-                    textColor: "#FFFFFF",
-                    fontSize: 11,
+                    text: {
+                      fill: "#FFFFFF",
+                      fontSize: 11,
+                    },
                     axis: {
                       domain: {
                         line: {
