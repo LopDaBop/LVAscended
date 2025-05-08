@@ -52,7 +52,45 @@ export const RadarChart = ({ attributes, size = "md" }: RadarChartProps) => {
         motionConfig="gentle"
         gridShape="circular"
         gridLevels={5}
-        gridLabel={(node) => node.id}
+        legends={[
+          {
+            anchor: 'top-left',
+            direction: 'column',
+            translateX: -50,
+            translateY: -40,
+            itemWidth: 80,
+            itemHeight: 20,
+            itemTextColor: '#ffffff',
+            symbolSize: 12,
+            symbolShape: 'circle',
+            effects: [
+              {
+                on: 'hover',
+                style: {
+                  itemTextColor: '#ffffff',
+                  itemBackground: 'rgba(0, 0, 0, .03)',
+                }
+              }
+            ]
+          }
+        ]}
+        gridLabel={(node) => {
+          return (
+            <g transform={`translate(${node.x}, ${node.y})`}>
+              <text
+                textAnchor="middle"
+                dominantBaseline="central"
+                style={{
+                  fontSize: 12,
+                  fontWeight: 'bold',
+                  fill: attributes.find(attr => attr.name === node.id)?.color || '#ffffff'
+                }}
+              >
+                {node.id}
+              </text>
+            </g>
+          );
+        }}
         theme={{
           text: {
             fill: "#FFFFFF",
